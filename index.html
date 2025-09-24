@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aamir Ahmad | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        :root {
+            --primary: #00bfa6;
+            --primary-dark: #009680;
+            --secondary: #121212;
+            --text: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+        
+        .primary-text {
+            color: var(--primary);
+        }
+        .primary-border {
+            border-color: var(--primary);
+        }
+        .primary-bg {
+            background-color: var(--primary);
+        }
+        .secondary-bg {
+            background-color: var(--secondary);
+        }
+        .white-text {
+            color: var(--text);
+        }
+        .hero-section {
+            height: 100vh;
+        }
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 191, 166, 0.3);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 191, 166, 0.3);
+        }
+        .contact-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 191, 166, 0.2);
+        }
+        ::selection {
+            background: var(--primary);
+            color: #000000;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="secondary-bg text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-secondary bg-opacity-90 backdrop-filter backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold primary-text">Aamir Ahmed</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link white-text hover:text-green-500 transition duration-300">Home</a>
+                    <a href="#about" class="nav-link white-text hover:text-green-500 transition duration-300">About</a>
+                    <a href="#skills" class="nav-link white-text hover:text-green-500 transition duration-300">Skills</a>
+                    <a href="#projects" class="nav-link white-text hover:text-green-500 transition duration-300">Projects</a>
+                    <a href="#contact" class="nav-link white-text hover:text-green-500 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-secondary bg-opacity-95 z-40 flex flex-col items-center justify-center">
+        <button id="close-btn" class="absolute top-6 right-6 text-white">
+            <i data-feather="x"></i>
+        </button>
+        <div class="flex flex-col space-y-8 text-center">
+            <a href="#home" class="text-2xl white-text hover:primary-text transition duration-300">Home</a>
+            <a href="#about" class="text-2xl white-text hover:primary-text transition duration-300">About</a>
+            <a href="#skills" class="text-2xl white-text hover:primary-text transition duration-300">Skills</a>
+            <a href="#projects" class="text-2xl white-text hover:primary-text transition duration-300">Projects</a>
+            <a href="#contact" class="text-2xl white-text hover:primary-text transition duration-300">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center relative overflow-hidden">
+        <div id="particles-js"></div>
+        <div class="container mx-auto px-6 z-10">
+            <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 white-text">Hi, I'm <span class="primary-text">Aamir Ahmed</span></h1>
+                <h2 class="text-xl md:text-3xl mb-8 white-text"><span id="typed-text"></span></h2>
+                <div class="flex justify-center space-x-4">
+                    <a href="#projects" class="px-6 py-3 primary-bg black-text rounded-full font-medium hover:bg-opacity-90 transition duration-300">View My Work</a>
+                    <a href="#contact" class="px-6 py-3 border-2 primary-border white-text rounded-full font-medium hover:bg-green-500 hover:bg-opacity-10 transition duration-300">Contact Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <a href="#about" class="animate-bounce block">
+                <i data-feather="chevron-down" class="white-text"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 secondary-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center primary-text" data-aos="fade-up">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0" data-aos="fade-right">
+                    <div class="rounded-full overflow-hidden border-4 primary-border w-64 h-64 mx-auto">
+                        <img src="aamir.jpg" alt="Aamir Ahmad" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-4 white-text">Who am I?</h3>
+                    <p class="mb-6 white-text leading-relaxed">
+                        I'm a student passionate about Machine Learning, Natural Language Processing, Web Development & Data Science. I am currently pursuing my undergraduate from The Westminster College.
+                    </p>
+                    <p class="mb-6 white-text leading-relaxed">
+                        I am about designing and experimenting with new technologies and frameworks. I enjoy developing intelligent and practical systems as well as researching and writing about the current & upcoming trends in computer science.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="primary-text mr-2"></i>
+                            <span class="white-text">Lalitpur, Nepal</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="primary-text mr-2"></i>
+                            <span class="white-text">aamir.ahmed.py@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="phone" class="primary-text mr-2"></i>
+                            <span class="white-text">+91 8700976036</span>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="Aamir_Khan_Updated_CV.pdf" class="inline-flex items-center primary-text" download>
+                            <span>Download Resume</span>
+                            <i data-feather="download" class="ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center primary-text" data-aos="fade-up">My Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Skill 1 - Machine Learning -->
+                <div class="skill-card p-6 rounded-lg bg-gray-800 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <i data-feather="cpu" class="w-12 h-12 mx-auto primary-text mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 white-text">Machine Learning</h3>
+                        <p class="text-gray-300">Python, TensorFlow, PyTorch, Scikit-learn, Data Modeling</p>
+                    </div>
+                </div>
+                <!-- Skill 2 - Natural Language Processing -->
+                <div class="skill-card p-6 rounded-lg bg-gray-800 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <i data-feather="message-square" class="w-12 h-12 mx-auto primary-text mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 white-text">NLP</h3>
+                        <p class="text-gray-300">Transformers, NLTK, spaCy, BERT, Text Processing</p>
+                    </div>
+                </div>
+                <!-- Skill 3 - Data Analytics -->
+                <div class="skill-card p-6 rounded-lg bg-gray-800 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <i data-feather="bar-chart-2" class="w-12 h-12 mx-auto primary-text mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 white-text">Data Analytics</h3>
+                        <p class="text-gray-300">Pandas, NumPy, SQL, Data Visualization, Statistics</p>
+                    </div>
+                </div>
+                <!-- Skill 4 - Web Development -->
+                <div class="skill-card p-6 rounded-lg bg-gray-800 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center">
+                        <i data-feather="code" class="w-12 h-12 mx-auto primary-text mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 white-text">Web Development</h3>
+                        <p class="text-gray-300">HTML, CSS, JavaScript, React, Node.js, Django</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional row for CyberSecurity (5th skill) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+                <div class="skill-card p-6 rounded-lg bg-gray-800 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-center">
+                        <i data-feather="shield" class="w-12 h-12 mx-auto primary-text mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 white-text">CyberSecurity</h3>
+                        <p class="text-gray-300">Network Security, Ethical Hacking, Cryptography, Risk Assessment</p>
+                    </div>
+                </div>
+                <!-- Empty spaces to maintain grid layout -->
+                <div class="hidden md:block"></div>
+                <div class="hidden md:block"></div>
+                <div class="hidden md:block"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 secondary-bg">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center primary-text" data-aos="fade-up">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 - Phishing Detector -->
+                <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/640x360/009680/ffffff?text=Phishing+Detector" alt="Phishing Detector" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 white-text">Phishing Detector</h3>
+                        <p class="text-gray-300 mb-4">Uses SpaCy for tokenization and regex for pattern recognition to grade URLs and classify emails based on threat level scoring.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Python</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">SpaCy</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Regex</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">NLP</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AamirAhmadDon/phishing_detector" class="primary-text hover:underline">View Project</a>
+                            <a href="https://github.com/AamirAhmadDon/phishing_detector" class="primary-text hover:underline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 - Race Track Data Analysis -->
+                <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/640x360/009680/ffffff?text=Race+Track+Analysis" alt="Race Track Data Analysis" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 white-text">Race Track Data Analysis</h3>
+                        <p class="text-gray-300 mb-4">Python + MySQL pipeline for managing motorsport data, extracting entities, and training PyTorch models to predict race outcomes.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Python</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">PyTorch</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">SpaCy</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AamirAhmadDon/race-track-data" class="primary-text hover:underline">View Project</a>
+                            <a href="https://github.com/AamirAhmadDon/race-track-data" class="primary-text hover:underline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 - QR Code Maker -->
+                <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/640x360/009680/ffffff?text=QR+Code+Maker" alt="QR Code Maker" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 white-text">QR Code Maker</h3>
+                        <p class="text-gray-300 mb-4">A simple and efficient tool for generating customizable QR codes for various applications and use cases.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Python</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">QR Code</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Automation</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AamirAhmadDon/QRcodemaker" class="primary-text hover:underline">View Project</a>
+                            <a href="https://github.com/AamirAhmadDon/QRcodemaker" class="primary-text hover:underline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4 - Portfolio Website v1.2 -->
+                <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://via.placeholder.com/640x360/009680/ffffff?text=Portfolio+v1.2" alt="Portfolio Website v1.2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 white-text">Portfolio Website v1.2</h3>
+                        <p class="text-gray-300 mb-4">My previous portfolio website showcasing projects and skills with a clean, responsive design.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">HTML</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">CSS</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Responsive</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="portfolio.html" class="primary-text hover:underline">View Project</a>
+                            <a href="https://github.com/AamirAhmadDon/portfolio" class="primary-text hover:underline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5 - Weather App -->
+                <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://via.placeholder.com/640x360/009680/ffffff?text=Weather+App" alt="Weather App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 white-text">Weather App</h3>
+                        <p class="text-gray-300 mb-4">Front-end weather application using OpenWeatherMap API to display current weather conditions and forecasts.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">API</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Frontend</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">OpenWeather</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://aamirahmaddon.github.io/weather-app/" class="primary-text hover:underline">View Project</a>
+                            <a href="https://github.com/AamirAhmadDon/weather-app" class="primary-text hover:underline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 6 - Placeholder for future project -->
+                <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://via.placeholder.com/640x360/009680/ffffff?text=Coming+Soon" alt="Coming Soon" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 white-text">New Project Coming Soon</h3>
+                        <p class="text-gray-300 mb-4">Working on an exciting new project in the field of machine learning and data analytics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Machine Learning</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Data Analytics</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Python</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="primary-text hover:underline opacity-50 cursor-not-allowed">View Project</a>
+                            <a href="#" class="primary-text hover:underline opacity-50 cursor-not-allowed">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://github.com/AamirAhmadDon" class="inline-flex items-center px-6 py-3 border-2 primary-border white-text rounded-full font-medium hover:bg-green-500 hover:bg-opacity-10 transition duration-300">
+                    <span>View All Projects on GitHub</span>
+                    <i data-feather="arrow-right" class="ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+<section id="reports" class="py-20 secondary-bg">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center primary-text" data-aos="fade-up">My Reports</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Report 1 - Quantum Computing -->
+            <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://via.placeholder.com/640x360/009680/ffffff?text=Quantum+Computing" alt="Quantum Computing Report" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2 white-text">Quantum Computing Report</h3>
+                    <p class="text-gray-300 mb-4">An in-depth analysis of quantum computing principles, applications, and future implications in technology and cryptography.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Research</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Technology</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Analysis</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="Quantum_Computing.pdf" class="primary-text hover:underline" target="_blank">View Report</a>
+                        <a href="Quantum_Computing.pdf" class="primary-text hover:underline" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Report 2 - XAI Report -->
+            <div class="project-card rounded-lg overflow-hidden bg-gray-900 border border-gray-700 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://via.placeholder.com/640x360/009680/ffffff?text=XAI+Report" alt="XAI Report" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2 white-text">Explainable AI (XAI) Report</h3>
+                    <p class="text-gray-300 mb-4">Comprehensive study on Explainable AI methodologies, importance of model interpretability, and implementation strategies.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">AI Ethics</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Machine Learning</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm white-text">Interpretability</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="XAI_report.pdf" class="primary-text hover:underline" target="_blank">View Report</a>
+                        <a href="XAI_report.pdf" class="primary-text hover:underline" download>Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center primary-text" data-aos="fade-up">Get In Touch</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-4 white-text">Contact Information</h3>
+                    <p class="mb-6 white-text leading-relaxed">
+                        Feel free to reach out to me for any questions or opportunities. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i data-feather="mail" class="primary-text mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium white-text">Email</h4>
+                                <p class="text-gray-300">aamir.ahmed.py@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="phone" class="primary-text mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium white-text">Phone</h4>
+                                <p class="text-gray-300">+91 8700976036</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="map-pin" class="primary-text mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium white-text">Location</h4>
+                                <p class="text-gray-300">Lalitpur, Nepal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="https://github.com/aamirahmaddon" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center white-text hover:primary-border hover:primary-text transition duration-300">
+                            <i data-feather="github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aamirahmaddon" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center white-text hover:primary-border hover:primary-text transition duration-300">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/aamirahmaddon" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center white-text hover:primary-border hover:primary-text transition duration-300">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/aamirahmaddon" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center white-text hover:primary-border hover:primary-text transition duration-300">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <form class="space-y-6" netlify>
+                        <div>
+                            <label for="name" class="block mb-2 white-text">Your Name</label>
+                            <input type="text" id="name" class="contact-input w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500 white-text" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 white-text">Your Email</label>
+                            <input type="email" id="email" class="contact-input w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500 white-text" placeholder="john@example.com" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 white-text">Subject</label>
+                            <input type="text" id="subject" class="contact-input w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500 white-text" placeholder="Subject" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 white-text">Message</label>
+                            <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-green-500 white-text" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="px-6 py-3 primary-bg black-text rounded-full font-medium hover:bg-opacity-90 transition duration-300 w-full md:w-auto">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 secondary-bg border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-lg font-bold primary-text mb-4 md:mb-0">Aamir Ahmad</div>
+                <div class="white-text text-sm">
+                    © 2023 Aamir Ahmad. All rights reserved.
+                </div>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="https://github.com/aamirahmaddon" class="white-text hover:primary-text transition duration-300">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/aamirahmaddon" class="white-text hover:primary-text transition duration-300">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/aamirahmaddon" class="white-text hover:primary-text transition duration-300">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/aamirahmaddon" class="white-text hover:primary-text transition duration-300">
+                        <i data-feather="instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        feather.replace();
+        
+        // Particles.js background
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00bfa6" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00bfa6",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Typing animation - MODIFIED
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('#typed-text', {
+                strings: ["Data Analytics", "Machine Learning", "Natural Language Processing", "CyberSecurity"],
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 2000,
+                loop: true
+            });
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
